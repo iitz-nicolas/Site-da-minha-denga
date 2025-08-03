@@ -76,38 +76,62 @@ h1 {
   font-size: 15px;
 }
 
+/* PLAYER PERSONALIZADO ESTILO SPOTIFY */
 .spotify-player {
   max-width: 400px;
   margin: 40px auto;
-  box-shadow: 0 0 15px #4000ff;
+  background-color: #2a2a2a;
+  padding: 15px;
   border-radius: 12px;
-  padding: 10px;
+  box-shadow: 0 0 15px #4000ff;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.spotify-player iframe {
-  border-radius: 12px;
-  width: 100%;
+.spotify-player .cover {
+  width: 80px;
   height: 80px;
-  max-width: 400px;
-  box-shadow: 0 0 15px #4000ff;
-  border: none;
-  display: block;
-  margin: 0 auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 8px #4000ff;
 }
 
-/* Se quiser personalizar mais o botão no futuro */
-button {
-  padding: 10px 20px;
-  font-size: 18px; /* Corrigido */
-  border: none;
+.spotify-player .track-info {
+  flex: 1;
+  text-align: left;
+}
+
+.spotify-player .track-info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: white;
+}
+
+.spotify-player .track-info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.spotify-player input[type="range"] {
+  width: 100%;
+  margin-top: 8px;
+  accent-color: #4000ff;
+}
+
+.spotify-player button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 16px;
   background-color: #4000ff;
   color: white;
-  border-radius: 8px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 0 10px #4000ff;
   transition: background 0.3s ease;
 }
 
-button:hover {
+.spotify-player button:hover {
   background-color: #2f00ff;
 }

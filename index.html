@@ -29,18 +29,42 @@
     </div>
   </div>
 
-  <!-- Player do Spotify com "Iris" do Goo Goo Dolls -->
+  <!-- Player local estilo Spotify -->
   <div class="spotify-player" style="margin-top: 30px;">
-    <h3>Escute "Iris" - Goo Goo Dolls</h3>
-    <iframe
-      src="https://open.spotify.com/embed/track/6Qyc6fS4DsZjB2mRW9DsQs"
-      width="300"
-      height="80"
-      frameborder="0"
-      allowtransparency="true"
-      allow="encrypted-media"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    ></iframe>
+    <img src="capa.jpg" alt="Capa" class="cover" />
+    <div class="track-info">
+      <h3>Iris</h3>
+      <p>Goo Goo Dolls</p>
+      <input type="range" id="progress" value="0" />
+      <button id="playPause">▶</button>
+    </div>
+    <audio id="audio" src="musica.mp3"></audio>
   </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playPause = document.getElementById('playPause');
+    const progress = document.getElementById('progress');
+
+    playPause.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPause.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playPause.textContent = '▶';
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const value = (audio.currentTime / audio.duration) * 100;
+      progress.value = value;
+    });
+
+    progress.addEventListener('input', () => {
+      const seekTime = (progress.value / 100) * audio.duration;
+      audio.currentTime = seekTime;
+    });
+  </script>
 </body>
 </html>
